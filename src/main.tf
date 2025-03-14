@@ -13,8 +13,12 @@ module "naming" {
   suffix  = [var.project, var.stage]
 }
 
+#--------------------------------
+# Resource Groups
+#--------------------------------
+
 resource "azurerm_resource_group" "core" {
-  name     = "${module.naming.resource_group.name}-core"
+  name     = module.naming.resource_group.name
   location = var.location
   tags     = local.tags
 }
